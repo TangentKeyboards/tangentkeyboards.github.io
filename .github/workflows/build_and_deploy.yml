@@ -26,25 +26,23 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: sveltekit-app
+          name: ${{ inputs.name }}
           path: ./build/
 
   deploy:
-    needs: [build]
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: sveltekit-app
-
       - name: Deploy to GitHub Pages
-        uses: actions/github-pages-deploy@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: sveltekit-app
+        id: deployment
+        uses: actions/deploy-pages@v2
