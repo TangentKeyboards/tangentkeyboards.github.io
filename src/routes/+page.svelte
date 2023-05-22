@@ -1,3 +1,9 @@
-<h1>Tangent Keyboards</h1>
-<p>This website is under construction.</p>
-<p>Contact <a href="https://mafra.nz">Malte</a> if you have any questions.</p>
+<script lang="ts">
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+</script>
+
+<title>{data.title}</title>
+
+{@html data.body}
