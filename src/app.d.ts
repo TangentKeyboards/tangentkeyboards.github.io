@@ -6,10 +6,6 @@ declare global {
     // interface Locals {}
     // interface PageData {}
     // interface Platform {}
-    interface MarkdownResult {
-      attributes: Record<string, unknown>;
-      html: string;
-    }
   }
 }
 

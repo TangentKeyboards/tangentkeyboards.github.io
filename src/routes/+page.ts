@@ -1,12 +1,24 @@
+import { error } from "@sveltejs/kit";
+import type { Product } from "../types/Product";
+import { cms } from "../util/cms";
 import type { PageLoad } from "./$types";
-import { loadFile } from "../util/content";
 
 export const prerender = true;
 
-type IndexAttributes = {
+type IndexPage = {
   title: string;
 };
 
 export const load: PageLoad = async () => {
-  return await loadFile<IndexAttributes>("index");
+  const products = await cms.entries<Product>("product");
+  const page = await cms.get<IndexPage>("index");
+
+  if (page == null) {
+    throw error(404, "Not found");
+  }
+
+  return {
+    products,
+    ...page,
+  };
 };
