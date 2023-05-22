@@ -1,0 +1,50 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: sveltekit-app
+          path: ./build/
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: sveltekit-app
+
+      - name: Deploy to GitHub Pages
+        uses: actions/github-pages-deploy@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: sveltekit-app
