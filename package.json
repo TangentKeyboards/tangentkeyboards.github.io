@@ -12,10 +12,12 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
+    "@poppanator/sveltekit-svg": "^3.0.1",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.5.0",
     "postcss": "^8.4.23",
+    "postcss-fluid": "^1.4.2",
     "postcss-preset-env": "^8.4.1",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
@@ -28,6 +30,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@fontsource/outfit": "^5.0.1",
     "front-matter": "^4.0.2",
     "marked": "^5.0.2",
     "svelte-markdown": "^0.2.3"

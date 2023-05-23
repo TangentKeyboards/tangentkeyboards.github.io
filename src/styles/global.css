@@ -1,0 +1,6 @@
+@import "./variables.css";
+@import "./normalize";
+
+.container {
+  padding: 0 2.5vw;
+}

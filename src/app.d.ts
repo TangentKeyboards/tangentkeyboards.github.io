@@ -7,29 +7,68 @@ declare global {
     // interface PageData {}
     // interface Platform {}
   }
-}
 
-declare module "*.md" {
-  // "unknown" would be more detailed depends on how you structure frontmatter
-  const attributes: Record<string, unknown>;
+  declare module "*.md" {
+    // "unknown" would be more detailed depends on how you structure frontmatter
+    const attributes: Record<string, unknown>;
 
-  // When "Mode.TOC" is requested
-  const toc: { level: string; content: string }[];
+    // When "Mode.TOC" is requested
+    const toc: { level: string; content: string }[];
 
-  // When "Mode.HTML" is requested
-  const html: string;
+    // When "Mode.HTML" is requested
+    const html: string;
 
-  // When "Mode.React" is requested. VFC could take a generic like React.VFC<{ MyComponent: TypeOfMyComponent }>
-  import React from "react";
-  const ReactComponent: React.VFC;
+    // When "Mode.React" is requested. VFC could take a generic like React.VFC<{ MyComponent: TypeOfMyComponent }>
+    import React from "react";
+    const ReactComponent: React.VFC;
 
-  // When "Mode.Vue" is requested
-  import { ComponentOptions, Component } from "vue";
-  const VueComponent: ComponentOptions;
-  const VueComponentWith: (components: Record<string, Component>) => ComponentOptions;
+    // When "Mode.Vue" is requested
+    import { ComponentOptions, Component } from "vue";
+    const VueComponent: ComponentOptions;
+    const VueComponentWith: (components: Record<string, Component>) => ComponentOptions;
 
-  // Modify below per your usage
-  export { attributes, toc, html, ReactComponent, VueComponent, VueComponentWith };
+    // Modify below per your usage
+    export { attributes, toc, html, ReactComponent, VueComponent, VueComponentWith };
+  }
+
+  declare module "*.svg?component" {
+    import type { ComponentType, SvelteComponentTyped } from "svelte";
+    import type { SVGAttributes } from "svelte/elements";
+
+    const content: ComponentType<SvelteComponentTyped<SVGAttributes<SVGSVGElement>>>;
+
+    export default content;
+  }
+
+  declare module "*.svg?src" {
+    const content: string;
+    export default content;
+  }
+
+  declare module "*.svg?url" {
+    const content: string;
+    export default content;
+  }
+
+  declare module "*.svg?dataurl" {
+    const content: string;
+    export default content;
+  }
+
+  declare module "*.svg?dataurl=base64" {
+    const content: string;
+    export default content;
+  }
+
+  declare module "*.svg?dataurl=enc" {
+    const content: string;
+    export default content;
+  }
+
+  declare module "*.svg?dataurl=unenc" {
+    const content: string;
+    export default content;
+  }
 }
 
 export {};

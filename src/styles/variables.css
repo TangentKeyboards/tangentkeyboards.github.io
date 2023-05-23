@@ -1,0 +1,32 @@
+:root {
+  --font-sans: "Outfit", sans-serif;
+  --font-headline-1: 600 fluid(5rem, 8rem) / 1.1 var(--font-sans);
+}
+
+.cs-mint {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+
+  --cs-background: 211 255 247;
+  --cs-on-background: 39 39 39;
+  --cs-primary: 0 65 53;
+  --cs-on-primary: 255 255 255;
+}
+
+:root {
+  --color-background: rgb(var(--cs-background) / 100%);
+  --color-background-muted: rgb(var(--cs-background) / 50%);
+  --color-background-subtle: rgb(var(--cs-background) / 10%);
+
+  --color-on-background: rgb(var(--cs-on-background) / 100%);
+  --color-on-background-muted: rgb(var(--cs-on-background) / 50%);
+  --color-on-background-subtle: rgb(var(--cs-on-background) / 10%);
+
+  --color-primary: rgb(var(--cs-primary) / 100%);
+  --color-primary-muted: rgb(var(--cs-primary) / 50%);
+  --color-primary-subtle: rgb(var(--cs-primary) / 10%);
+
+  --color-on-primary: rgb(var(--cs-on-primary) / 100%);
+  --color-on-primary-muted: rgb(var(--cs-on-primary) / 50%);
+  --color-on-primary-subtle: rgb(var(--cs-on-primary) / 10%);
+}
