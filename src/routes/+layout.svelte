@@ -1,7 +1,13 @@
 <script>
+  import Navbar from "../components/Navbar.svelte";
   import "../styles/global.css";
 </script>
 
-<div class="cs-mint">
+<Navbar />
+
+<div class="fulltall container wide dotpattern cs-mint">
   <slot />
 </div>
+
+<style>
+</style>

@@ -1,6 +1,6 @@
 import presetEnv from "postcss-preset-env";
-import fluid from "postcss-fluid";
+import fluid from "@lehoczky/postcss-fluid";
 
 export default {
-  plugins: [presetEnv({}), fluid({ min: "340px", max: "1920px" })],
+  plugins: [presetEnv({}), fluid({ min: 340, max: 1280 })],
 };

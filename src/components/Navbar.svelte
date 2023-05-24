@@ -2,7 +2,7 @@
   import Logo from "../assets/logo-dashed.svg?component";
 </script>
 
-<header class="container">
+<header class="container wide">
   <div class="brand">
     <Logo />
   </div>
@@ -12,5 +12,6 @@
 <style>
   header {
     padding-top: 20px;
+    position: fixed;
   }
 </style>

@@ -1,6 +1,8 @@
 :root {
   --font-sans: "Outfit", sans-serif;
-  --font-headline-1: 600 fluid(5rem, 8rem) / 1.1 var(--font-sans);
+  --font-headline-1: 600 fluid(3rem, 8rem) / 1.1 var(--font-sans);
+  --font-headline-2: 600 fluid(2rem, 3rem) / 1.1 var(--font-sans);
+  --font-body: 400 1rem / 1.5 var(--font-sans);
 }
 
 .cs-mint {
@@ -13,7 +15,7 @@
   --cs-on-primary: 255 255 255;
 }
 
-:root {
+* {
   --color-background: rgb(var(--cs-background) / 100%);
   --color-background-muted: rgb(var(--cs-background) / 50%);
   --color-background-subtle: rgb(var(--cs-background) / 10%);

@@ -1,6 +1,45 @@
 @import "./variables.css";
-@import "./normalize";
+@import "./normalize.css";
+
+body {
+  font: var(--font-body);
+}
 
 .container {
-  padding: 0 2.5vw;
+  --container-width: 1280px;
+
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: var(--container-width);
+}
+
+.container.wide {
+  --container-width: none;
+  --container-padding: 2.75vw;
+}
+
+.container.thin {
+  --container-width: 1024px;
+}
+
+.dotpattern {
+  background-image: url("../assets/dot-pattern.svg");
+  background-repeat: both;
+}
+
+.fulltall {
+  min-height: 100vh;
+}
+
+.headline-1,
+.richtext h1 {
+  font: var(--font-headline-1);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.headline-2,
+.richtext h2 {
+  font: var(--font-headline-2);
+  margin-bottom: 1rem;
 }
